@@ -2,12 +2,12 @@
 
 class UsersController extends \BaseController {
 
-	public function __construct()
-	{
-		parent::__construct();
+	// public function __construct()
+	// {
+	// 	parent::__construct();
 
-		$this->beforeFilter('auth', array('except' => array('create')));
-	}
+	// 	$this->beforeFilter('auth', array('except' => array('create')));
+	// }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -52,6 +52,8 @@ class UsersController extends \BaseController {
 			$user->password = Input::get('password');
 			$user->email = Input::get('email');
 			$image = Input::file('image');
+			$user->location = Input::get('location');
+			
 			if ($image) {
 				$filename = $image->getClientOriginalName();
 				$user->image = '/uploaded/' . $filename;

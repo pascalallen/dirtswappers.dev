@@ -42,7 +42,6 @@
 		<script src="/js/bootstrap.min.js"></script>
 
 		<!-- CUSTOM JS BELOW -->
-		<script src="/js/intro.js"></script>
 
 		@yield('bottom-script')
 
