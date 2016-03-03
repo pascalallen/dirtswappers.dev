@@ -4,7 +4,7 @@
 
 	<style type="text/css">
 		.row {
-			text-align: center;
+			/*text-align: center;*/
 		}
 
 		.user-image {
