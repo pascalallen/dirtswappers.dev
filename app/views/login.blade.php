@@ -2,12 +2,6 @@
 
 @section('top-script')
 
-	<style type="text/css">
-
-		
-
-	</style>
-
 @stop
 
 @section('content')

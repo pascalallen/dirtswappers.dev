@@ -131,7 +131,7 @@ class PostsController extends \BaseController {
 
 			if ($image) {
 				$filename = $image->getClientOriginalName();
-				$tutorial->image = '/uploaded/' . $filename;
+				$post->image = '/uploaded/' . $filename;
 				$image->move('uploaded/', $filename);
 			}
 			
@@ -140,7 +140,7 @@ class PostsController extends \BaseController {
 			$result = $post->save();
 
 			if($result) {
-				Session::flash('successMessage', 'Your tutorial has been saved.');
+				Session::flash('successMessage', 'Your post has been saved.');
 				return Redirect::action('PostsController@show', $post->id);
 			} else {
 				return Redirect::back()->withInput();

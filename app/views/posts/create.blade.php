@@ -26,13 +26,13 @@
 			{{ Form::file('image') }}
 		</div>
 
-		<div class="form-group {{ ($errors->has('location')) ? 'has-error' : '' }}">
+		<div class="{{ ($errors->has('location')) ? 'has-error' : '' }} form-group">
 			{{ $errors->first('location', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('location', 'Location') }}
-			{{ Form::file('location', null) }}
+			{{ Form::text('location', null, ['class' => 'form-control', 'placeholder' => 'Location']) }}
 		</div>
 
-		{{ Form::submit('submit') }}
+		<button type="submit" class="btn btn-default">Submit</button>
 	{{ Form::close() }}
 	</div>
 
