@@ -12,7 +12,6 @@
 			{{ $errors->first('title', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('title', 'Title') }}
 			{{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title', 'value' => '{{{ $post->title }}}']) }}
-			{{-- <input type="text" class="form-control" id="title" name="title" value="{{{ $post->title }}}"> --}}
 		</div>
 
 		<div class="form-group {{ ($errors->has('body')) ? 'has-error' : '' }}">
