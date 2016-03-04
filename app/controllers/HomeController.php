@@ -58,26 +58,37 @@ class HomeController extends BaseController {
 
 	    $searchTerms = explode(' ', $search);
 
-	    $query = Post::with('user');
+	    $queryPost = Post::with('user');
+	    $queryUser = User::with('post');
 
 	    foreach($searchTerms as $term)
 	    {
-	        $query->where('title', 'LIKE', '%'. $term .'%')
+	        $queryPost->where('title', 'LIKE', '%' . $term . '%')
 	        ->orWhere('body', 'LIKE', '%' . $term . '%')
+	        ->orWhere('location', 'LIKE', '%' . $term . '%');
+
+	        $queryUser->where('username', 'LIKE', '%' . $term . '%')
+	        ->orWhere('email', 'LIKE', '%' . $term . '%')
 	        ->orWhere('location', 'LIKE', '%' . $term . '%');
 	    }
 
-	    $results = $query->orderBy('created_at', 'desc')->get();
+	    $resultsPost = $queryPost->orderBy('created_at', 'desc')->get();
+	    $resultsUser = $queryUser->orderBy('created_at', 'desc')->get();
 
-	    return View::make('search')->with(['results' => $results]);
+	    return View::make('search')->with(['resultsPost' => $resultsPost, 'resultsUser' => $resultsUser]);
 	}
 
 	public function searchShow($id)
 	{
 		$post = Post::find($id);
+		$user = User::find($id);
 
 		if($post) {
 			return Redirect::action('PostsController@show', $post->id);
+		}
+
+		if($user) {
+			return Redirect::action('UsersController@show', $user->id);
 		}
 	}
 

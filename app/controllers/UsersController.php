@@ -2,12 +2,12 @@
 
 class UsersController extends \BaseController {
 
-	// public function __construct()
-	// {
-	// 	parent::__construct();
+	public function __construct()
+	{
+		parent::__construct();
 
-	// 	$this->beforeFilter('auth', array('except' => array('create')));
-	// }
+		$this->beforeFilter('auth', array('except' => array('create', 'store')));
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
