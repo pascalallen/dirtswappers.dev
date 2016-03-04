@@ -31,9 +31,8 @@
 			margin: 16px 0 0 0;
 		}
 
-		h1>.fa-registered {
-			width: 3px;
-			height: 2px;
+		.fa-registered {
+			font-size: 10px;
 		}
 	</style>
 

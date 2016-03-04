@@ -4,8 +4,15 @@
 
 	<style type="text/css">
 		.row {
+			margin: 0;
 			text-align: center;
 		}
+
+		.create {
+			position: absolute;
+			margin-top: 80px;
+		}
+
 	</style>
 
 @stop
@@ -13,7 +20,7 @@
 @section('content')
 
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
+		<div class="col-xs-4 col-xs-offset-4 create">
 			{{ Form::open(array('action' => 'UsersController@store', 'method' => 'post', 'files' => true)) }}
 			
 				<div class="{{ ($errors->has('username')) ? 'has-error' : '' }} form-group">
@@ -46,7 +53,7 @@
 					{{ Form::text('location', null, ['class' => 'form-control', 'placeholder' => 'Location']) }}
 				</div>
 
-				{{ Form::submit('submit') }}
+				{{ Form::submit('submit', ['class' => 'btn btn-default']) }}
 
 			{{ Form::close() }}
 		</div>
