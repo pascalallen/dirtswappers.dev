@@ -22,6 +22,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			@foreach ($resultsPost as $result)
+			<h1>Posts</h1>
 				<table class="table">
 					<thead>
 						<tr>
@@ -43,14 +44,19 @@
 					</tbody>
 				</table>
 			@endforeach
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
 			@foreach ($resultsUser as $result)
+			<h1>Users</h1>
 				<table class="table">
 					<thead>
 						<tr>
 							<th>Profile Image</th>
 							<th>Last Post</th>
 							<th>User</th>
-							<th>Location</th>
+							{{-- <th>Location</th> --}}
 						</tr>
 					</thead>
 					<tbody>
@@ -58,7 +64,7 @@
 							<td><a href="{{{ action('UsersController@show', $result->id) }}}"><img src="{{{ $result->image }}}" class="user-image"></a></td>	
 							<td>{{{ $result->created_at->diffForHumans() }}}</td>
 							<td><a href="{{{ action('UsersController@show', $result->id) }}}">{{{ $result->username }}}</a></td>
-							<td>{{{ $result->location }}}</a></td>
+							{{-- <td>{{{ $result->location }}}</a></td> --}}
 						</tr>
 					</tbody>
 				</table>
