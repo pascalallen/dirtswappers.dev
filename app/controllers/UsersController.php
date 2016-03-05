@@ -100,7 +100,7 @@ class UsersController extends \BaseController {
 			Log::info('This user id is not equal');
 			return Redirect::action('UsersController@show', Auth::id());
 		}
-		$posts = Post::with('posts')->get();
+		$post = Post::with('user')->get();
 		$user = User::find($id);
 		return View::make('users.edit', compact('user'));
 	}

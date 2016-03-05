@@ -15,9 +15,9 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			@if(Auth::user() == $post->user)
-				<button type="submit" class="btn btn-default" id="edit">Edit Post</button>
+				{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
 				{{ Form::open(array('action' => array('PostsController@destroy', $post->id, 'files' => true), 'method' => 'DELETE')) }}
-					<button type="submit" class="btn btn-default">Delete</button>
+					{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
 				{{ Form::close() }}
 			@endif
 			<h3 class="title">{{{ ($post->title) }}}</h3>

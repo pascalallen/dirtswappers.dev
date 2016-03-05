@@ -43,8 +43,7 @@
 				<div class="form-group {{ ($errors->has('image')) ? 'has-error' : '' }}">
 					{{ $errors->first('image', '<div class="alert alert-danger">:message</div>') }}
 					{{ Form::label('image', 'Image') }}
-					<p>Current Image:</p>
-					{{{ $user->image }}}
+					<p><u>Current Image:</u> {{{ $user->image }}}</p>
 					{{ Form::file('image') }}
 				</div>
 
