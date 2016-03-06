@@ -23,7 +23,7 @@
 	</head>
 	<body>
 		@include('partials.navbar')
-
+		
 		@yield('content')
 
 		@if (Session::has('successMessage'))
