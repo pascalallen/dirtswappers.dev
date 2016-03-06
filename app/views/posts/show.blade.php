@@ -10,6 +10,26 @@
 		.post-image {
 			height: 300px;
 		}
+
+		a:link {
+		    text-decoration: none;
+		    color: #777;
+		}
+
+		a:visited {
+		    text-decoration: none;
+		    color: #777;
+		}
+
+		a:hover {
+		    text-decoration: underline;
+		    color: #777;
+		}
+
+		a:active {
+		    text-decoration: underline;
+		    color: #777;
+		}
 	</style>
 
 @stop
@@ -31,7 +51,7 @@
 				<img src="{{{ $post->image }}}" class="post-image">
 			@endif
 			<blockquote>
-				<footer>Created by {{{ $post->user->username }}}, {{{$post->created_at->diffForHumans() }}}</footer>
+				<footer>Created by <a href="{{{ action('UsersController@show', $post->user->id)}}}" class="author">{{{ $post->user->username }}}</a>, {{{$post->created_at->diffForHumans() }}}</footer>
 			</blockquote>
 		</div>
 	</div>
